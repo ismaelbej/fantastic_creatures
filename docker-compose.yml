@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: mariadb:11.0
+    volumes:
+      - mariadb:/var/lib/mysql
+    environment:
+      - MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=true
+
+  web:
+    build: .
+    command: bash -c "bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+      - bundler_gems:/usr/local/bundle/
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - RAILS_ENV=development
+      - MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=true
+
+volumes:
+  mariadb:
+  bundler_gems:
