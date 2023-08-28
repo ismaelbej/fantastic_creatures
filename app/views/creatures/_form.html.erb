@@ -1,0 +1,20 @@
+<%= form_with model: creature do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :kind %>
+    <%= form.select :kind, ['aire', 'agua', 'tierra'], selected: 'tierra' %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

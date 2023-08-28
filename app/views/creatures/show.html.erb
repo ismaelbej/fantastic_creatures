@@ -1,0 +1,14 @@
+<h1><%= @creature.name %></h1>
+
+<ul>
+  <li><%= @creature.kind %></li>
+  <li><%= @creature.description%></li>
+</ul>
+
+<ul>
+  <li><%= link_to "Edit", edit_creature_path(@creature) %></li>
+  <li><%= link_to "Destroy", creature_path(@creature), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %></li>
+</ul>
