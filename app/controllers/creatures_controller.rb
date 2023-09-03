@@ -1,6 +1,6 @@
 class CreaturesController < ApplicationController
   def index
-    @creatures = Creature.all
+    @creatures = Creature.all.order(:name)
   end
 
   def show

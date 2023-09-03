@@ -1,20 +1,38 @@
+<%
+submit_label ||= creature.new_record? ? "Save" : "Update"
+%>
+
 <%= form_with model: creature do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="flex flex-col w-1/2 gap-3">
+    <div class="flex flex-row items-center gap-2">
+      <div class="w-1/3 text-sm text-right font-semibold">
+        <%= form.label :name %>
+      </div>
+      <div class="w-2/3">
+        <%= form.text_field :name, { class: "rounded-md" } %>
+      </div>
+    </div>
 
-  <div>
-    <%= form.label :kind %>
-    <%= form.select :kind, ['aire', 'agua', 'tierra'], selected: 'tierra' %>
-  </div>
+    <div class="flex flex-row items-center gap-2">
+      <div class="w-1/3 text-sm text-right font-semibold">
+        <%= form.label :kind %>
+      </div>
+      <div class="w-2/3">
+        <%= form.select :kind, ['aire', 'agua', 'tierra'], { selected: 'tierra' }, { class: "rounded-md" } %>
+      </div>
+    </div>
 
-  <div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <div class="flex flex-row items-center gap-2">
+      <div class="w-1/3 text-sm text-right font-semibold">
+        <%= form.label :description %>
+      </div>
+      <div class="w-2/3">
+        <%= form.text_area :description, { class: "rounded-md" } %>
+      </div>
+    </div>
 
-  <div>
-    <%= form.submit %>
+    <div class="pt-3 flex flex-col items-center">
+      <%= form.submit submit_label, { class: "w-20 py-2 px-3 bg-indigo-500 rounded-full text-white text-sm font-semibold" } %>
+    </div>
   </div>
 <% end %>
