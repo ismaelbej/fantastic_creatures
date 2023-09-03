@@ -1,11 +1,13 @@
-<h1>Creatures</h1>
-
-<ul>
+<header class="pb-3">
+  <h1>Creatures</h1>
+</header
+>
+<ul class="flex flex-col gap-2">
   <% @creatures.each do |creature| %>
-    <li>
-      <%= link_to creature.name, creature %>
-    </li>
-  <% end %>  
+    <%= render partial: "small_card", locals: { creature: creature } %>
+  <% end %>
 </ul>
 
-<%= link_to "New Creature", new_creature_path %>
+<div class="pt-3">
+  <%= link_to "New Creature", new_creature_path %>
+</div>
