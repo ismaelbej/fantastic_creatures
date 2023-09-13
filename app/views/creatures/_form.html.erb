@@ -31,8 +31,9 @@ submit_label ||= creature.new_record? ? "Save" : "Update"
       </div>
     </div>
 
-    <div class="pt-3 flex flex-col items-center">
-      <%= form.submit submit_label, { class: "w-20 py-2 px-3 bg-indigo-500 rounded-full text-white text-sm font-semibold" } %>
+    <div class="pt-3 flex flex-row items-center gap-2 w-min place-self-center">
+      <%= form.submit submit_label, { class: "py-2 px-5 bg-indigo-500 rounded-full text-white text-sm font-semibold" } %>
+      <%= link_to "Cancel", :back, { class: "py-2 px-5 bg-white rounded-full text-indigo-500 text-sm font-semibold border border-indigo-500" } %>
     </div>
   </div>
 <% end %>
